@@ -10,6 +10,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { PerfildeusuarioComponent } from './perfildeusuario/perfildeusuario.component';
 import { CarritodecomprassComponent } from './carritodecomprass/carritodecomprass.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CarritodecomprassComponent } from './carritodecomprass/carritodecompras
     PrincipalComponent,
     CategoriasComponent,
     PerfildeusuarioComponent,
-    CarritodecomprassComponent
+    CarritodecomprassComponent,
+    PruebaComponent
   ],
   imports: [
     BrowserModule,
