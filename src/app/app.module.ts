@@ -7,10 +7,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarruselComponent } from './carrusel/carrusel.component';
 import { PrincipalComponent } from './principal/principal.component';
-import { CategoriasComponent } from './categorias/categorias.component';
 import { PerfildeusuarioComponent } from './perfildeusuario/perfildeusuario.component';
 import { CarritodecomprassComponent } from './carritodecomprass/carritodecomprass.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { DeportivaComponent } from './categorias/deportiva/deportiva.component';
+import { FormalComponent } from './categorias/formal/formal.component';
+import { FrioComponent } from './categorias/frio/frio.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { PruebaComponent } from './prueba/prueba.component';
     FooterComponent,
     CarruselComponent,
     PrincipalComponent,
-    CategoriasComponent,
     PerfildeusuarioComponent,
     CarritodecomprassComponent,
-    PruebaComponent
+    PruebaComponent,
+    DeportivaComponent,
+    FormalComponent,
+    FrioComponent
   ],
   imports: [
     BrowserModule,

@@ -9,17 +9,15 @@
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['principal']">Principal<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">PerfilUS</a>
-        </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" [routerLink]="['categorias']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categorias de Ropa
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Deportiva</a>
-            <a class="dropdown-item" href="#">Formal</a>
-            <a class="dropdown-item" href="#">Ropa de Frio</a>
+            <a class="dropdown-item" [routerLink]="['categorias/deportiva']">Deportiva</a>
+            <a class="dropdown-item" [routerLink]="['categorias/formal']">Formal</a>
+            <a class="dropdown-item" [routerLink]="['categorias/frio']">Ropa de Frio</a>
           </div>
         </li>
       </ul>
