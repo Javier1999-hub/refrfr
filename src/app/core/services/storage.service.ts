@@ -1,10 +1,8 @@
-/**
- * Created by xavi on 5/16/17.
- */
-import {Injectable} from "@angular/core";
+import { Injectable } from '@angular/core';
+import { Session } from '../models/session.model';
 import { Router } from '@angular/router';
-import {Session} from "../models/session.model";
-import {User} from "../models/user.model";
+import { User } from '../models/user.model';
+/* en esta parte se maneja la informacion del usuario durante la sesion */
 
 @Injectable()
 export class StorageService {

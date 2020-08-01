@@ -1,61 +1,50 @@
-/*
- * xavics 26/10/18
- */
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
-import {User} from "../models/user.model";
-import {USERS} from "../mocks/mock-users";
+import { User } from '../models/user.model';
+import { USERS } from '../mocks/mock-users';
+
+/*se crea esto debido a que necesitamos un login sin backend que lo respalde, como sabes la función login 
+nos devuelve un token y el usuario en el body que coincidirá con los parámetros que reciba. 
+Si los parámetros no son correctos devolverá un error y el logout simplemente nos devuelve un true. */
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
 
   constructor() { }
-
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // array in local storage for registered users
+    //LocalStorage del arrreglo de usuarios registrados
     let users: any[] = JSON.parse(localStorage.getItem('users')) || [];
-
-    // wrap in delayed observable to simulate server api call
+    //simula llamada al servidor
     return of(null).pipe(mergeMap(() => {
-
-      // fake authenticate api end point
       if (request.url.endsWith('/api/authenticate/login') && request.method === 'POST') {
-        let params = request.body;
-
-        // check user credentials and return fake jwt token if valid
-        let found: User = USERS.find((user: User) => {return (params.username === user.username);});
+        let params = request = request.body;
+        let found: User = USERS.find((user: User) => { return (params.email === user.email); });
         if (found) {
-          if(params.password === found.password) {
-            return of(new HttpResponse({status: 200, body: {token: 'fake-token-jwt', user: found}}));
-          }else{
-            return throwError({code: 2, message: 'The password does not match '});
+          if (params.password === found.password) {
+            return of(new HttpResponse({ status: 200, body: { token: 'fake token', user: found } }));
+          } else {
+            return throwError({ code: 2, message: 'La contraseña es Incorrecta, favor de rectificar' });
           }
         } else {
-          return throwError({code: 1, message: 'Username does not exists'});
+          return throwError({ code: 1, message: 'Usuario no existe, Favor de revisar el nombre de Usuario' });
         }
-
       }
-
       if (request.url.endsWith('/api/authenticate/logout') && request.method === 'POST') {
-        return of(new HttpResponse({status: 200, body: true}));
+        return of(new HttpResponse({ status: 200, body: true }));
       }
-
-      // pass through any requests not handled above
+      //vuelve a pasar por cualquier solicitud no manejada arriba
       return next.handle(request);
-
     }))
-
-    // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
-      .pipe(materialize())
-      .pipe(delay(500))
-      .pipe(dematerialize());
+    //utiliza los materiales de angular para no tener un retraso pese a que tenga un error
+    .pipe(materialize())
+    .pipe(delay(500))
+    .pipe(dematerialize());
   }
 }
-
-export let fakeBackendProvider = {
-  // use fake backend in place of Http service for backend-less development
+export let fakeBackendProvinder = {
+  //usa un backend falso en lugar del servicio http para un desarrollo sin backend
   provide: HTTP_INTERCEPTORS,
   useClass: FakeBackendInterceptor,
   multi: true
