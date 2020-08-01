@@ -1,13 +1,10 @@
-/**
- * Created by xavi on 5/16/17.
- */
-import {Component, OnInit} from "@angular/core";
-import {Validators, FormGroup, FormBuilder} from "@angular/forms";
-import {LoginObject} from "./shared/login-object.model";
-import {AuthenticationService} from "./shared/authentication.service";
-import {StorageService} from "../core/services/storage.service";
-import {Router} from "@angular/router";
-import {Session} from "../core/models/session.model";
+import { Component, OnInit } from "@angular/core";
+import { Validators, FormGroup, FormBuilder } from "@angular/forms";
+import { LoginObject } from "./shared/login-object.model";
+import { AuthenticationService } from "./shared/authentication.service";
+import { StorageService } from "../core/services/storage.service";
+import { Router } from "@angular/router";
+import { Session } from "../core/models/session.model";
 @Component({
   selector: 'login',
   templateUrl: 'login.component.html'
@@ -16,12 +13,13 @@ import {Session} from "../core/models/session.model";
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public submitted: Boolean = false;
-  public error: {code: number, message: string} = null;
+  public error: { code: number, message: string } = null;
 
   constructor(private formBuilder: FormBuilder,
-              private authenticationService: AuthenticationService,
-              private storageService: StorageService,
-              private router: Router) { }
+    private authenticationService: AuthenticationService,
+    private storageService: StorageService,
+    private router: Router) 
+  { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -33,7 +31,7 @@ export class LoginComponent implements OnInit {
   public submitLogin(): void {
     this.submitted = true;
     this.error = null;
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
       this.authenticationService.login(new LoginObject(this.loginForm.value)).subscribe(
         data => this.correctLogin(data),
         error => {
@@ -43,8 +41,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  private correctLogin(data: Session){
+  private correctLogin(data: Session) {
     this.storageService.setCurrentSession(data);
     this.router.navigate(['/home']);
   }
+    /*
+    Prueebbaaaaaaaaaaa
+  login(){
+    if(this.lg_email=="admin"&&this.lg_pass=="a123"){
+      console.log("Welcome");
+      //this.snackBar.open('Bienvenido','',{duration:1000})
+    }else{
+      console.log("Error");
+      //this.snackBar.open('Error, favor de verificar los d','',{duration:1000})
+    }
+  }*/
 }

@@ -1,8 +1,9 @@
 <div class="aligner">
   <mat-card class="aligner-center-item">
-    <mat-card-title>
-      Login Form
-    </mat-card-title>
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-subtitle>Ingrese los datos</mat-card-subtitle>
+  </mat-card-header>
     <mat-card-content>
       <form id="login-form" #lForm="ngForm" [formGroup]="loginForm" (ngSubmit)="submitLogin()" novalidate>
         <mat-form-field style="width: 100%; margin-bottom: 10px;" [ngClass]="{'mat-input-invalid': submitted && error?.code == 1}">

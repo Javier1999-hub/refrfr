@@ -1,19 +1,23 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {fakeBackendProvider} from "./helper/fake-backend";
-import {StorageService} from "./services/storage.service";
-import {AuthorizatedGuard} from "./guards/authorizated.guard";
+import { NgModule, Optional, SkipSelf} from '@angular/core';
+import { StorageService } from './services/storage.service';
+import { AuthorizatedGuard } from './guards/authorizated.guard';
+import { fakeBackendProvinder } from './helper/fake-backend';
+//import { Backend } from '@angular/http/testing';
+import { HttpRequest } from '@angular/common/http';
 
 @NgModule({
-  declarations: [  ],
+  declarations: [],
   imports: [],
-  providers: [
+  providers:[
     StorageService,
     AuthorizatedGuard,
-    fakeBackendProvider
+    fakeBackendProvinder,
+    //MockBackend,
+    HttpRequest
   ],
-  bootstrap: []
+  bootstrap:[]
 })
-export class CoreModule {
+export class CoreModule { 
   constructor (@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
       throw new Error(
