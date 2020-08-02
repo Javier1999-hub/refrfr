@@ -14,6 +14,8 @@ const routes: Routes = [
   {path: 'categorias/formal', component: FormalComponent},
   {path: 'categorias/frio', component: FrioComponent},
   {path: 'inicio-sesion/inicio-sesion', component: InicioSesionComponent},
+  {path: '**', pathMatch: 'full', redirectTo:'principal'},
+
 ];
 
 @NgModule({

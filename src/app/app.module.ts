@@ -9,7 +9,6 @@ import { CarruselComponent } from './carrusel/carrusel.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { PerfildeusuarioComponent } from './perfildeusuario/perfildeusuario.component';
 import { CarritodecomprassComponent } from './carritodecomprass/carritodecomprass.component';
-import { PruebaComponent } from './prueba/prueba.component';
 import { DeportivaComponent } from './categorias/deportiva/deportiva.component';
 import { FormalComponent } from './categorias/formal/formal.component';
 import { FrioComponent } from './categorias/frio/frio.component';
@@ -24,7 +23,6 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
     PrincipalComponent,
     PerfildeusuarioComponent,
     CarritodecomprassComponent,
-    PruebaComponent,
     DeportivaComponent,
     FormalComponent,
     FrioComponent,
