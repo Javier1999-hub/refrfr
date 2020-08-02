@@ -1,8 +1,7 @@
 import {User} from "./user.model";
-/**
- * Created by xavi on 5/17/17.
- */
-export class Session {
-  public token: string;
-  public user: User;
+/*Aqui se expresa una session iniciada con un token que autentifica al usuario */
+
+export class Session{
+    public token: string;
+    public user: User;
 }
