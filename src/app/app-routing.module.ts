@@ -5,6 +5,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { DeportivaComponent } from './categorias/deportiva/deportiva.component';
 import { FormalComponent } from './categorias/formal/formal.component';
 import { FrioComponent } from './categorias/frio/frio.component';
+import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'categorias/deportiva', component: DeportivaComponent},
   {path: 'categorias/formal', component: FormalComponent},
   {path: 'categorias/frio', component: FrioComponent},
+  {path: 'inicio-sesion/inicio-sesion', component: InicioSesionComponent},
 
   {path: '**', pathMatch: 'full', redirectTo:'principal'},
 ];
