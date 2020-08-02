@@ -12,7 +12,7 @@ import { CarritodecomprassComponent } from './carritodecomprass/carritodecompras
 import { DeportivaComponent } from './categorias/deportiva/deportiva.component';
 import { FormalComponent } from './categorias/formal/formal.component';
 import { FrioComponent } from './categorias/frio/frio.component';
-import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { InicioSesionComponent } from './categorias/inicio-sesion/inicio-sesion.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
     DeportivaComponent,
     FormalComponent,
     FrioComponent,
-    InicioSesionComponent
+    InicioSesionComponent,
   ],
   imports: [
     BrowserModule,

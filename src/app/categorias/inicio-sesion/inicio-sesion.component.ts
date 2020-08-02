@@ -8,12 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class InicioSesionComponent implements OnInit {
 
   constructor() { }
-
-  
-click1() {
-  alert('Bienvenido');
-}
-
+  click1() {
+    alert('Bienvenido');
+  }
   ngOnInit(): void {
   }
 
